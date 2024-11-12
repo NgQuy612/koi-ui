@@ -8,6 +8,11 @@
 .title-form-customer {
   font-size: 1.8rem;
   font-weight: 600;
+}
+
+.price-order {
+  font-size: 1.8rem;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
@@ -51,8 +56,7 @@
   width: 100%;
 }
 
-.container-input-address,
-.box-input-note {
+.container-input-address {
   width: 48%;
 }
 
@@ -70,13 +74,13 @@
   width: 32%;
 }
 
-/* .box-submit-form-order {
+.box-btn-order {
   display: flex;
   align-items: flex-end;
-} */
+  width: 100%;
+}
 
-.box-submit-form-order button {
-  margin-top: 16px;
+.box-btn-order button {
   height: 38px;
   padding: 10px 20px;
   border: none;
@@ -84,10 +88,73 @@
   color: white;
   border-radius: 10px;
   cursor: pointer;
+  margin-left: auto;
 }
 
-.box-submit-form-order button:hover {
+.box-btn-order button:hover {
   opacity: 0.6;
+}
+
+.tag-status-order,
+.tag-method-order {
+  font-size: 0.9rem;
+  display: block;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  text-align: center;
+  max-width: 126px;
+}
+
+/* Status */
+.status-cancelled {
+  background-color: #e53935;
+}
+
+.status-completed {
+  background-color: #43a047;
+}
+
+.status-onprocess {
+  background-color: #0288d1;
+}
+
+.status-waiting {
+  background-color: #ffb300;
+}
+
+.status-preparing {
+  background-color: #fb8c00;
+}
+
+.status-pending {
+  background-color: #fbc02d;
+}
+
+/* Method */
+.method-land {
+  background-color: #388e3c;
+}
+
+.method-air {
+  background-color: #039be5;
+}
+
+.method-sea {
+  background-color: #8e24aa;
+}
+
+.box-widt-48 {
+  width: 48%;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.box-feedback-order .note-area-feedback,
+.box-input-note {
+  flex: 1;
 }
 
 textarea.input-form-order {
