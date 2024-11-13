@@ -134,17 +134,16 @@
 
 /* Method */
 .method-land {
-  background-color: #388e3c;
+  background-color: #ee5c00;
 }
 
 .method-air {
-  background-color: #039be5;
+  background-color: #0369c5;
 }
 
 .method-sea {
-  background-color: #8e24aa;
+  background-color: #000;
 }
-
 .box-widt-48 {
   width: 48%;
   display: flex;

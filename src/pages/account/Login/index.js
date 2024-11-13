@@ -15,7 +15,7 @@ function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     const role = localStorage.getItem("role");
 
     if (token && role) {
@@ -40,14 +40,14 @@ function Login() {
       );
 
       const { token, role } = response.data;
-      localStorage.setItem("token", token);
+      localStorage.setItem("authToken", token);
       localStorage.setItem("role", role);
 
       if (token && role) {
         toast.success("Đăng nhập thành công!", { autoClose: 500 });
         if (role === "ROLE_ADMIN") {
           navigate("/admin");
-        } else if (role === "ROLE_CUSTOMER") {
+        } else {
           navigate("/customer");
         }
       }

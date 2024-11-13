@@ -16,8 +16,8 @@ import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 
 const cx = classNames.bind(styles);
 
-function Sidebar() {
-  const name = 'Admin';
+function Sidebar({fullName}) {
+  const name = fullName || '';
   return (
     <div className={cx("sidebar")}>
       <div className={cx("box-item-sidebar")}>

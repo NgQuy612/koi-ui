@@ -3,7 +3,7 @@ import Layout from "../../../components/account/Layout";
 import styles from "./index.module.css";
 import classNames from "classnames/bind";
 import { ToastContainer, toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
@@ -27,14 +27,14 @@ function ForGot() {
       );
 
       const { token, role } = response.data;
-      localStorage.setItem("token", token);
+      localStorage.setItem("authToken", token);
       localStorage.setItem("role", role);
 
       toast.success("Đăng nhập thành công!");
 
       if (role === "ROLE_ADMIN") {
         navigate("/admin");
-      } else if (role === "ROLE_CUSTOMER") {
+      } else  {
         navigate("/customer");
       }
     } catch (error) {

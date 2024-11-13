@@ -25,18 +25,18 @@ function SignUp() {
     }));
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const role = localStorage.getItem("role");
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   const role = localStorage.getItem("role");
 
-    if (token && role) {
-      if (role === "ROLE_ADMIN") {
-        navigate("/admin");
-      } else if (role === "ROLE_CUSTOMER") {
-        navigate("/customer");
-      } 
-    }
-  }, [navigate]);
+  //   if (token && role) {
+  //     if (role === "ROLE_ADMIN") {
+  //       navigate("/admin");
+  //     } else if (role === "ROLE_CUSTOMER") {
+  //       navigate("/customer");
+  //     } 
+  //   }
+  // }, [navigate]);
 
   const handleRegister = async (e) => {
     e.preventDefault();

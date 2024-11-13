@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useOrder } from "../../../../contexts/OrderProvider";
 import Layout from "../../../../components/client/Customer/Layout";
 import styles from "./index.module.css";
 import classNames from "classnames/bind";
@@ -9,6 +10,8 @@ import axios from "axios";
 const cx = classNames.bind(styles);
 
 function CreateShipment() {
+  const { incrementOrderCount } = useOrder();
+  
   const defaultData = {
     quantity: 0,
     weight: 0,
@@ -216,6 +219,7 @@ function CreateShipment() {
         setEstimatedPrice(0);
         setMethods([]);
         setIsDisabledMethod(false);
+        incrementOrderCount();
       } else {
         toast.error("Failed to create shipment");
       }
