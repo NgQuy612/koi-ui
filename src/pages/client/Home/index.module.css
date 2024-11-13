@@ -18,7 +18,7 @@
 .title-banner {
   text-transform: uppercase;
   color: #fff;
-  font-size: 4rem;
+  font-size: 1.56rem;
 }
 
 .box-parameter {
@@ -33,7 +33,7 @@
 }
 
 .title-parameter {
-  font-size: 2.8rem;
+  font-size: 1.75rem;
   font-weight: 600;
 }
 
@@ -54,8 +54,8 @@
 .title-box-advantage,
 .title-partner {
   text-align: center;
-  margin: 0px 0 40px;
-  font-size: 4rem;
+  margin: 0 0 40px;
+  font-size: 1.56rem;
   font-weight: 600;
   text-transform: uppercase;
 }
