@@ -1,6 +1,9 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { useOrder } from "../../../../contexts/OrderProvider";
 import { useNavigate } from "react-router-dom";
+=======
+>>>>>>> 5be9ed44f2de768df6c7536a370076b0deccd176
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./index.module.css";
 import classNames from "classnames/bind";
@@ -13,7 +16,6 @@ import {
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons/faUser";
 
-const cx = classNames.bind(styles);
 const Logo = () => (
   <svg
     width="123"
@@ -72,16 +74,25 @@ const Logo = () => (
   </svg>
 );
 
+<<<<<<< HEAD
 function Header({ fullName }) {
   const name = fullName || "";
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+=======
+const cx = classNames.bind(styles);
+
+function Header() {
+  const [showPopup, setShowPopup] = useState(false);
+  const name = "admin";
+>>>>>>> 5be9ed44f2de768df6c7536a370076b0deccd176
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
 
   const handleLogout = () => {
+<<<<<<< HEAD
     const confirmLogout = window.confirm(
       "Bạn có chắc chắn muốn đăng xuất không?"
     );
@@ -91,6 +102,10 @@ function Header({ fullName }) {
       localStorage.removeItem("role");
       navigate("/login");
     }
+=======
+    console.log("User logged out");
+    setShowPopup(false);
+>>>>>>> 5be9ed44f2de768df6c7536a370076b0deccd176
   };
 
   const { orderCount } = useOrder();

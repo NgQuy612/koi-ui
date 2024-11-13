@@ -6,7 +6,7 @@
 }
 
 .title-form-customer {
-  font-size: 1.8rem;
+  font-size: 1.13rem;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -37,14 +37,14 @@
   cursor: pointer;
 }
 
-.search-order button:hover {
+.search-order button:hover, 
+.btn-view-detail:hover  {
   opacity: 0.6;
 }
 
 .table-order {
   overflow-x: auto;
   border-radius: 10px;
-  max-height: 60vh;
 }
 
 .table-order table {
@@ -57,7 +57,7 @@
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 0.88rem;
 }
 
 .table-order th {
@@ -74,12 +74,11 @@
   background-color: #f1f1f1af;
 }
 
-.price-order {
-  font-weight: 600;
-}
-
 .btn-view-detail {
+  border-radius: 10px;
+  font-size: 0.75rem;
   font-weight: 600;
+<<<<<<< HEAD
   color: #00133d;
   text-decoration: none;
   margin-left: auto;
@@ -93,9 +92,13 @@
 .tag-status-order,
 .tag-method-order {
   font-size: 0.9rem;
+=======
+  width: 88px;
+  padding: 8px;
+>>>>>>> 5be9ed44f2de768df6c7536a370076b0deccd176
   display: block;
-  font-weight: 600;
   color: #fff;
+<<<<<<< HEAD
   border-radius: 8px;
   padding: 4px;
 }
@@ -136,4 +139,8 @@
 
 .method-sea {
   background-color: #000;
+=======
+  background-color: #00194f;
+  text-decoration: none;
+>>>>>>> 5be9ed44f2de768df6c7536a370076b0deccd176
 }

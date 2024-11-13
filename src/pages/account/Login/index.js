@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Layout from "../../../components/account/Layout";
 import styles from "./index.module.css";
 import classNames from "classnames/bind";
@@ -14,6 +14,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     const role = localStorage.getItem("role");
@@ -27,6 +28,8 @@ function Login() {
     }
   }, [navigate]);
 
+=======
+>>>>>>> 5be9ed44f2de768df6c7536a370076b0deccd176
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -43,6 +46,7 @@ function Login() {
       localStorage.setItem("authToken", token);
       localStorage.setItem("role", role);
 
+<<<<<<< HEAD
       if (token && role) {
         toast.success("Đăng nhập thành công!", { autoClose: 500 });
         if (role === "ROLE_ADMIN") {
@@ -50,9 +54,17 @@ function Login() {
         } else {
           navigate("/customer");
         }
+=======
+      toast.success("Đăng nhập thành công!");
+
+      if (role === "ROLE_ADMIN") {
+        navigate("/admin");
+      } else if (role === "ROLE_CUSTOMER") {
+        navigate("/customer");
+>>>>>>> 5be9ed44f2de768df6c7536a370076b0deccd176
       }
     } catch (error) {
-      toast.error("Đăng nhập thất bại!");
+      toast.error("Đăng nhập thất bại! Vui lòng kiểm tra lại thông tin.");
     }
   };
 
@@ -72,9 +84,7 @@ function Login() {
 
         <form onSubmit={handleLogin} className={cx("login-form")}>
           <div className={cx("form-group")}>
-            <label htmlFor="email">
-              Email<span className={cx("text-is-red")}> *</span>
-            </label>
+            <label htmlFor="email">Email<span className={cx("text-is-red")}> *</span></label>
             <input
               type="email"
               id="email"
@@ -86,9 +96,7 @@ function Login() {
             />
           </div>
           <div className={cx("form-group")}>
-            <label htmlFor="password">
-              Password<span className={cx("text-is-red")}> *</span>
-            </label>
+            <label htmlFor="password">Password<span className={cx("text-is-red")}> *</span></label>
             <input
               type="password"
               id="password"

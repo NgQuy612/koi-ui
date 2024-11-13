@@ -9,9 +9,7 @@ import {
   faLock,
   faPen,
   faTruckFast,
-  faBoxOpen
 } from "@fortawesome/free-solid-svg-icons";
-
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 
 const cx = classNames.bind(styles);
@@ -46,14 +44,6 @@ function Sidebar({fullName}) {
                 <FontAwesomeIcon icon={faCartShopping} />
               </div>
               My Orders
-            </Link>
-          </li>
-          <li className={cx("item-service")}>
-            <Link className={cx("link-item-service")} to={`/customer/my-order/deliver`}>
-              <div className={cx("icon-item-service")}>
-                <FontAwesomeIcon icon={faBoxOpen} />
-              </div>
-              Orders Deliver
             </Link>
           </li>
           <li className={cx("item-service")}>
