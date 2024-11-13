@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./index.module.css";
 import classNames from "classnames/bind";
@@ -11,6 +12,7 @@ import {
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons/faUser";
 
+const cx = classNames.bind(styles);
 const Logo = () => (
   <svg
     width="123"
@@ -69,19 +71,23 @@ const Logo = () => (
   </svg>
 );
 
-const cx = classNames.bind(styles);
-
 function Header() {
   const [showPopup, setShowPopup] = useState(false);
   const name = "admin";
+  const navigate = useNavigate(); 
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
 
   const handleLogout = () => {
-    console.log("User logged out");
-    setShowPopup(false);
+    const confirmLogout = window.confirm("Bạn có chắc chắn muốn đăng xuất không?");
+    
+    if (confirmLogout) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("role");
+      navigate("/login");
+    }
   };
 
   return (

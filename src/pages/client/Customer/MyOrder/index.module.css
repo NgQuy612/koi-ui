@@ -6,7 +6,7 @@
 }
 
 .title-form-customer {
-  font-size: 1.13rem;
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -37,14 +37,14 @@
   cursor: pointer;
 }
 
-.search-order button:hover, 
-.btn-view-detail:hover  {
+.search-order button:hover {
   opacity: 0.6;
 }
 
 .table-order {
   overflow-x: auto;
   border-radius: 10px;
+  max-height: 60vh;
 }
 
 .table-order table {
@@ -57,7 +57,7 @@
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
-  font-size: 0.88rem;
+  font-size: 1.4rem;
 }
 
 .table-order th {
@@ -74,14 +74,66 @@
   background-color: #f1f1f1af;
 }
 
-.btn-view-detail {
-  border-radius: 10px;
-  font-size: 0.75rem;
+.price-order {
   font-weight: 600;
-  width: 88px;
-  padding: 8px;
-  display: block;
-  color: #fff;
-  background-color: #00194f;
+}
+
+.btn-view-detail {
+  font-weight: 600;
+  color: #00133d;
   text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-view-detail:hover {
+  color:rgb(248, 101, 16);
+}
+
+.tag-status-order,
+.tag-method-order {
+  font-size: 0.9rem;
+  display: block;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+/* Status */
+.status-cancelled {
+  background-color: #e53935;
+}
+
+.status-completed {
+  background-color: #43a047;
+}
+
+.status-onprocess {
+  background-color: #0288d1;
+}
+
+.status-waiting {
+  background-color: #ffb300;
+}
+
+.status-preparing {
+  background-color: #fb8c00;
+}
+
+.status-pending {
+  background-color: #fbc02d;
+}
+
+/* Method */
+.method-land {
+  background-color: #388e3c;
+}
+
+.method-air {
+  background-color: #039be5;
+}
+
+.method-sea {
+  background-color: #8e24aa;
 }

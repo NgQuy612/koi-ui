@@ -3,7 +3,7 @@ import Layout from "../../../components/account/Layout";
 import styles from "./index.module.css";
 import classNames from "classnames/bind";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 

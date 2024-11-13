@@ -1,107 +1,35 @@
 .container-header {
-    display: flex;
-    padding: 10px 30px;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    width: 100%;
-    background-color: #fff;
-    z-index: 999;
-    height: var(--header-height);
+  display: flex;
+  padding: 10px 30px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
 }
 
 .logo-header {
-    padding-top: 10px;
-}
-
-.menu-header {
-    height: 100%;
-    display: flex;
-    align-items: center;
-
-    > .dropdown {
-        height: 100%;
-        display: inline-flex;
-    }
+  padding-top: 10px;
 }
 
 .item-menu-header {
-    border: 0;
-    padding: 4px 20px;
-    color: #000;
-
-    &:hover {
-        color: #555; /* Thay đổi màu chữ khi hover */
-    }
+  border: 0;
+  background-color: #fff;
+  padding: 4px 20px;
+  cursor: pointer;
+  color:#000;
 }
 
-.item-menu-header {
-    border: 0;
-    padding: 4px 20px;
-    color: #000;
-
-    &:hover {
-        color: #555; /* Thay đổi màu chữ khi hover */
-    }
-
-    > .dropdown {
-        height: 100%;
-        display: inline-flex;
-    }
-}
-
-a.item-menu-header {
+a.item-menu-header{
     text-decoration: none;
 }
 
 .header-contact {
-    background-color: #7c0000;
-    padding: 8px 20px;
-    color: #fff;
-    border: 0;
-    cursor: pointer;
-}
-
-/* Đặt cho dropdown */
-.dropdown {
-    position: relative;
-    cursor: pointer;
-    background-color: #FFFFFF;
-
-    .item-menu-header {
-        display: inline-block;
-        width: 100%;
-        text-align: left;
-    }
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 230px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    left: 0;
-    top: 100%;
-
-    .item-menu-header,
-    .dropdown {
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-}
-
-.dropdown:hover > .dropdown-content {
-    display: block;
-}
-
-.dropdown-content .dropdown {
-    position: relative;
-}
-
-.dropdown-content .dropdown-content {
-    top: 0;
-    left: 100%; /* Để menu cấp tiếp theo hiển thị ở bên phải */
+  background-color: #7c0000;
+  padding: 8px 20px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
 }
