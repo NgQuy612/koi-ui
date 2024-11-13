@@ -1,151 +1,152 @@
 .title {
-    font-size: 2.25rem;
-    text-transform: uppercase;
-    line-height: 54px;
-    font-weight: 900;
-    margin-bottom: 1.60rem;
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  line-height: 54px;
+  font-weight: 900;
+  margin-bottom: 1.6rem;
 }
 
 .item {
-    margin-top: 8rem;
+  margin-top: 8rem;
 }
 
 .p {
-    margin-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .inner-image {
-    margin-top: 6.40rem;
+  margin-top: 6.4rem;
 }
 
 .info-board {
-    width: 100%;
-    max-width: 712px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 12px 24px 0 rgba(0, 0, 0, .08);
-    position: relative;
-    margin-top: -100px;
-    font-size: 0.88rem;
+  width: 100%;
+  max-width: 712px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #ffffff;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+    0 12px 24px 0 rgba(0, 0, 0, 0.08);
+  position: relative;
+  margin-top: -100px;
+  font-size: 0.88rem;
 }
 
 .info-board-inner {
-    padding: 3.20rem;
+  padding: 3.2rem;
 }
 
 .info-board-title {
-    font-weight: 700;
-    font-size: 2.20rem;
-    line-height: 21px;
-    margin-bottom: 0.75rem;
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 21px;
+  margin-bottom: 0.75rem;
 }
 
 .info-board-content {
-    display: flex;
-    column-gap: 1.50rem;
+  display: flex;
+  column-gap: 1.5rem;
 }
 
 .info-board-content > div {
-    flex: 0 0 50%;
+  flex: 0 0 50%;
 }
 
 .info-board-key {
-    font-weight: 400;
-    color: rgb(89 89 89/1);
+  font-weight: 400;
+  color: rgb(89 89 89/1);
 }
 
 .info-board-value {
-    font-weight: 500;
-    text-transform: uppercase;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .info-board-content-item {
-    margin-top: 1.60rem;
+  margin-top: 1.6rem;
 }
 
 .section-2-content {
-    display: flex;
-    column-gap: 3rem;
-    justify-content: space-between;
-    margin-top: 2.25rem;
+  display: flex;
+  column-gap: 3rem;
+  justify-content: space-between;
+  margin-top: 2.3rem;
 }
 
 .section-2-content-item {
-    flex: 0 0 40%;
+  flex: 0 0 40%;
 }
 
 .section-2-content-title {
-    font-weight: 600;
-    font-size: 1.13rem;
+  font-weight: 600;
+  font-size: 1.13rem;
 }
 
 .section-2-content-desc {
-    margin-top: 0.75rem;
-    font-size: 0.88rem;
-    color: rgb(38 38 38/1);
-    line-height: 21px;
-    font-weight: 400;
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+  color: rgb(38 38 38/1);
+  line-height: 21px;
+  font-weight: 400;
 }
 
 .section-3 {
-    background-image: url(../../../assets/imgs/Group_19608_9edb29413a.webp);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    padding: 9rem 0;
-    margin-top: 120px;
-    min-height: 916px;
+  background-image: url(../../../assets/imgs/Group_19608_9edb29413a.webp);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 9rem 0;
+  margin-top: 120px;
+  min-height: 916px;
 }
 
 .section-3-content {
-    padding: 1.50rem;
-    max-width: 676px;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 #0000, 0 0 #0000, 0 12px 24px 0 rgba(0, 0, 0, .08);
-    color: #262626;
-    line-height: 21px;
-    font-size: 0.88rem;
+  padding: 1.5rem;
+  max-width: 676px;
+  background-color: #ffffff;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 12px 24px 0 rgba(0, 0, 0, 0.08);
+  color: #262626;
+  line-height: 21px;
+  font-size: 0.88rem;
 
-    p {
-        margin-top: 1.9rem;
-    }
+  p {
+    margin-top: 1.9rem;
+  }
 }
 
 .section-3-title {
-    line-height: 2.25rem;
-    font-size: 1.50rem;
-    color: #262626;
-    text-transform: uppercase;
-    font-weight: 700;
+  line-height: 2.25rem;
+  font-size: 1.5rem;
+  color: #262626;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .section-3-content-container {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .section-3-sign {
-    display: flex;
-    justify-content: end;
-    text-align: center;
+  display: flex;
+  justify-content: end;
+  text-align: center;
 
-    & > * {
-        padding-right: 2.5rem;
-        padding-left: 2.5rem;
-        margin-top: 2.5rem;
-    }
+  & > * {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    margin-top: 2.5rem;
+  }
 
-    p {
-        margin-top: 0;
-    }
+  p {
+    margin-top: 0;
+  }
 }
 
 .our-strength {
-    color: #262626;
+  color: #262626;
 
-    .title-content {
-        font-size: 1.13rem;
-        max-width: 600px;
-    }
+  .title-content {
+    font-size: 1.13rem;
+    max-width: 600px;
+  }
 }
