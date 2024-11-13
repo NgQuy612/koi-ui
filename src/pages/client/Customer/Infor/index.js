@@ -5,7 +5,6 @@ import styles from "./index.module.css";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
-import { ToastContainer, toast } from "react-toastify";
 
 const cx = classNames.bind(styles);
 
@@ -43,7 +42,7 @@ function Infor() {
             phone: data.phone,
           });
         } else {
-          toast.error("Lỗi khi lấy thông tin");
+          console.error("Error fetching user info");
         }
       } catch (error) {
         console.error("Error:", error);
@@ -57,60 +56,48 @@ function Infor() {
   const handleChange = (e) => {
     console.log(e);
     const { name, value } = e.target;
-    if (name === "dob") {
-      const formattedValue = new Date(value).toISOString().split("T")[0];
-      setFormData({ ...formData, [name]: formattedValue });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   // Hàm xử lý submit form và bắn API POST
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const token = localStorage.getItem("authToken");
-      if (!token) {
-        console.error("Token is missing");
-        return;
-      }
+    console.log(JSON.stringify(formData));
+    // try {
+    //   const token = localStorage.getItem('authToken');
+    //   if (!token) {
+    //     console.error('Token is missing');
+    //     return;
+    //   }
 
-      console.log(JSON.stringify(formData));
+    //   const response = await fetch('http://localhost:8081/api/v1/user/update-info', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Authorization': 'Bearer ' + token
+    //     },
+    //     body: JSON.stringify(formData)
+    //   });
 
-      const response = await fetch(
-        "http://localhost:8081/api/v1/user/update-info",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (response.ok) {
-        toast.success("Cập nhật thông tin thành công");
-      } else {
-        toast.error("Lỗi khi cập nhật thông tin");
-      }
-    } catch (error) {
-      toast.error("Lỗi khi cập nhật thông tin");
-      console.error("Error:", error);
-    }
+    //   if (response.ok) {
+    //     console.log('Cập nhật thông tin thành công');
+    //   } else {
+    //     console.error('Lỗi khi cập nhật thông tin');
+    //   }
+    // } catch (error) {
+    //   console.error('Error:', error);
+    // }
   };
 
   return (
     <Layout fullName={fullName}>
-      <ToastContainer />
       <div className={cx("box-form-customer")}>
         <p className={cx("title-form-customer")}>Edit Infor</p>
         <div className={cx("box-handle-form-customer")}>
-          <FontAwesomeIcon
-            size="7x"
-            icon={faUserAlt}
-            style={{ color: "#ccc", padding: "30px" }}
-          />
+          <FontAwesomeIcon size="7x" icon={faUserAlt} style={{color: "#ccc", padding: "30px"}}/>
           <form onSubmit={handleSubmit} className={cx("form-customer")}>
             <div className={cx("input-form-customer")}>
               <label>Full Name:</label>

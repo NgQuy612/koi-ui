@@ -6,7 +6,7 @@
 }
 
 .title-form-customer {
-  font-size: 1.8rem;
+  font-size: 1.13rem;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -25,14 +25,14 @@
 
 .box-input-form-order label {
   margin-bottom: 5px;
-  font-size: 1.2rem;
+  font-size: 0.75rem;
 }
 
 .input-form-order {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1.6rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -51,8 +51,7 @@
   width: 100%;
 }
 
-.container-input-address,
-.box-input-note {
+.container-input-address {
   width: 48%;
 }
 
@@ -70,13 +69,12 @@
   width: 32%;
 }
 
-/* .box-submit-form-order {
+.box-btn-order {
   display: flex;
   align-items: flex-end;
-} */
+}
 
-.box-submit-form-order button {
-  margin-top: 16px;
+.box-btn-order button {
   height: 38px;
   padding: 10px 20px;
   border: none;
@@ -86,10 +84,6 @@
   cursor: pointer;
 }
 
-.box-submit-form-order button:hover {
+.box-btn-order button:hover {
   opacity: 0.6;
-}
-
-textarea.input-form-order {
-  min-height: 100px;
 }
