@@ -6,12 +6,12 @@
 }
 
 .title-form-customer {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
 }
 
 .price-order {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -30,14 +30,14 @@
 
 .box-input-form-order label {
   margin-bottom: 5px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .input-form-order {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1.6rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -97,7 +97,7 @@
 
 .tag-status-order,
 .tag-method-order {
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   display: block;
   font-weight: 600;
   color: #fff;
@@ -134,17 +134,16 @@
 
 /* Method */
 .method-land {
-  background-color: #388e3c;
+  background-color: #ee5c00;
 }
 
 .method-air {
-  background-color: #039be5;
+  background-color: #0369c5;
 }
 
 .method-sea {
-  background-color: #8e24aa;
+  background-color: #000;
 }
-
 .box-widt-48 {
   width: 48%;
   display: flex;

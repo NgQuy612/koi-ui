@@ -9,9 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const cx = classNames.bind(styles);
 
-function MyOrder() {
+function OrderDelivered() {
   const [orders, setOrders] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const token = localStorage.getItem("authToken");
 
   useEffect(() => {
@@ -21,54 +20,14 @@ function MyOrder() {
     }
 
     axios
-      .get("http://localhost:8081/api/v1/order/me", {
+      .get("http://localhost:8081/api/v1/order/deliver/me", {
         headers: {
           Authorization: "Bearer " + token,
         },
       })
       .then((response) => setOrders(response.data))
-      .catch((error) => toast.error("Failed to fetch orders"));
+      .catch((error) => toast.warning("All orders have been taken"));
   }, [token]);
-
-  const handleSearch = async (e) => {
-    e.preventDefault();
-
-    if (!searchTerm) {
-      // Nếu không có searchTerm, lấy tất cả đơn hàng
-      try {
-        const response = await axios.get(
-          "http://localhost:8081/api/v1/order/me",
-          {
-            headers: {
-              Authorization: "Bearer " + token,
-            },
-          }
-        );
-        setOrders(response.data);
-      } catch (error) {
-        toast.error("Failed to fetch orders");
-      }
-    } else {
-      // Nếu có searchTerm, tìm kiếm theo Order ID
-      try {
-        const response = await axios.get(
-          `http://localhost:8081/api/v1/order/${searchTerm}`,
-          {
-            headers: {
-              Authorization: "Bearer " + token,
-            },
-          }
-        );
-        if (response.status === 200) {
-          setOrders([response.data]);
-        } else {
-          toast.error("Order not found");
-        }
-      } catch (error) {
-        toast.error("Error fetching order");
-      }
-    }
-  };
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("vi-VN", {
@@ -113,20 +72,8 @@ function MyOrder() {
     <Layout>
       <div className={cx("box-form-customer")}>
         <ToastContainer />
-        <p className={cx("title-form-customer")}>My Order</p>
+        <p className={cx("title-form-customer")}>Order Deliver</p>
         <div className={cx("box-table-order")}>
-          {/* Thanh tìm kiếm Order ID */}
-          <div className={cx("search-order")}>
-            <form onSubmit={handleSearch} className={cx("form-search-order")}>
-              <input
-                type="text"
-                placeholder="Search Order ID"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <button type="submit">Search</button>
-            </form>
-          </div>
           <div className={cx("table-order")}>
             <table>
               <thead>
@@ -184,4 +131,4 @@ function MyOrder() {
   );
 }
 
-export default MyOrder;
+export default OrderDelivered;

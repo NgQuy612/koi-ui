@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useOrder } from "../../../../contexts/OrderProvider";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./index.module.css";
 import classNames from "classnames/bind";
@@ -11,6 +13,7 @@ import {
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons/faUser";
 
+const cx = classNames.bind(styles);
 const Logo = () => (
   <svg
     width="123"
@@ -69,20 +72,28 @@ const Logo = () => (
   </svg>
 );
 
-const cx = classNames.bind(styles);
-
-function Header() {
+function Header({ fullName }) {
+  const name = fullName || "";
   const [showPopup, setShowPopup] = useState(false);
-  const name = "admin";
+  const navigate = useNavigate();
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
 
   const handleLogout = () => {
-    console.log("User logged out");
-    setShowPopup(false);
+    const confirmLogout = window.confirm(
+      "Bạn có chắc chắn muốn đăng xuất không?"
+    );
+
+    if (confirmLogout) {
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("role");
+      navigate("/login");
+    }
   };
+
+  const { orderCount } = useOrder();
 
   return (
     <header>
@@ -115,6 +126,7 @@ function Header() {
                   </div>
                   Infor
                 </Link>
+
                 <Link
                   style={{ paddingBottom: "10px" }}
                   className={cx("popup-menu-item")}
@@ -136,6 +148,9 @@ function Header() {
             )}
           </div>
           <Link className={cx("icon-cart-shopping")} to={`/customer/my-order`}>
+            {orderCount > 0 && (
+              <span className={cx("order-count")}>{orderCount}</span>
+            )}
             <FontAwesomeIcon icon={faCartShopping} />
           </Link>
         </div>
