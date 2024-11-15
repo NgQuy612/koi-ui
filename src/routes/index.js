@@ -7,12 +7,17 @@ import CreateShipment from "../pages/client/Customer/CreateShipment";
 import OrderDelivered from "../pages/client/Customer/OrderDelivered";
 import DetailOrder from "../pages/client/Customer/DetailOrder";
 
+//Admin
+import AdminPage from "../pages/admin/Adminpage";
+import UserStatistics from "../pages/admin/UserStatistics";
+import OrderStatistics from "../pages/admin/OrderStatistics";
+
 //Account
 import Login from "../pages/account/Login";
 import ForGot from "../pages/account/ForGot";
 import SignUp from "../pages/account/SignUp";
 import AboutUs from "../pages/client/AboutUs";
-import {routerName} from "./routerName";
+import { routerName } from "./routerName";
 import CrossBorderEcommerce from "../pages/client/Services/CrossBorderEcommerce";
 import CrossBorderTransportation from "pages/client/Services/CrossBorderTransportation";
 import ContactSales from "pages/client/ContactSales";
@@ -21,25 +26,34 @@ import Home from "pages/client/Home";
 
 // Public routes
 const publicRoutes = [
-    {path: routerName.home.slug, component: Home},
-    {path: routerName.blog.slug, component: Blog},
-    {path: routerName.aboutUs.slug, component: AboutUs},
-    {path: routerName.servicesCrossBorderEcommerce.slug, component: CrossBorderEcommerce},
-    {path: routerName.servicesCrossBorderTransportation.slug, component: CrossBorderTransportation},
-    {path: routerName.contactSales.slug, component: ContactSales},
-    {path: "/login", component: Login},
-    {path: "/forgot-password", component: ForGot},
-    {path: "/sign-up", component: SignUp}
+  { path: routerName.home.slug, component: Home },
+  { path: routerName.blog.slug, component: Blog },
+  { path: routerName.aboutUs.slug, component: AboutUs },
+  {
+    path: routerName.servicesCrossBorderEcommerce.slug,
+    component: CrossBorderEcommerce,
+  },
+  {
+    path: routerName.servicesCrossBorderTransportation.slug,
+    component: CrossBorderTransportation,
+  },
+  { path: routerName.contactSales.slug, component: ContactSales },
+  { path: "/login", component: Login },
+  { path: "/forgot-password", component: ForGot },
+  { path: "/sign-up", component: SignUp },
 ];
 
 const privateRoutes = [
-    { path: "/customer/", component: MyOrder },
-    { path: "/customer/infor", component: Infor },
-    { path: "/customer/change-password", component: ChangePassword },
-    { path: "/customer/my-order", component: MyOrder },
-    { path: "/customer/my-order/deliver", component: OrderDelivered },
-    { path: "/customer/create-shipment", component: CreateShipment },
-    { path: "/customer/detail-order/:id", component: DetailOrder },
+  { path: "/customer/", component: MyOrder },
+  { path: "/customer/infor", component: Infor },
+  { path: "/customer/change-password", component: ChangePassword },
+  { path: "/customer/my-order", component: MyOrder },
+  { path: "/customer/my-order/deliver", component: OrderDelivered },
+  { path: "/customer/create-shipment", component: CreateShipment },
+  { path: "/customer/detail-order/:id", component: DetailOrder },
+  { path: "/admin/", component: AdminPage },
+  { path: "/admin/user-statistics", component: UserStatistics },
+  { path: "/admin/order-statistics", component: OrderStatistics },
 ];
 
-export {publicRoutes, privateRoutes};
+export { publicRoutes, privateRoutes };
