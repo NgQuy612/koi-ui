@@ -5,7 +5,8 @@ import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
-  faBoxOpen
+  faBoxOpen,
+  faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
@@ -13,7 +14,7 @@ import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 const cx = classNames.bind(styles);
 
 function Sidebar() {
-  const name = 'Admin';
+  const name = "Admin";
   return (
     <div className={cx("sidebar")}>
       <div className={cx("box-item-sidebar")}>
@@ -31,7 +32,10 @@ function Sidebar() {
         <p className={cx("title-default")}>Services</p>
         <ul className={cx("list-service")}>
           <li className={cx("item-service")}>
-            <Link className={cx("link-item-service")} to={`/admin/user-statistics`}>
+            <Link
+              className={cx("link-item-service")}
+              to={`/admin/user-statistics`}
+            >
               <div className={cx("icon-item-service")}>
                 <FontAwesomeIcon icon={faUser} />
               </div>
@@ -39,11 +43,25 @@ function Sidebar() {
             </Link>
           </li>
           <li className={cx("item-service")}>
-            <Link className={cx("link-item-service")} to={`/admin/order-statistics`}>
+            <Link
+              className={cx("link-item-service")}
+              to={`/admin/order-statistics`}
+            >
               <div className={cx("icon-item-service")}>
                 <FontAwesomeIcon icon={faBoxOpen} />
               </div>
               Order Statistic
+            </Link>
+          </li>
+          <li className={cx("item-service")}>
+            <Link
+              className={cx("link-item-service")}
+              to={`/admin/address-management`}
+            >
+              <div className={cx("icon-item-service")}>
+                <FontAwesomeIcon icon={faLocationDot} />
+              </div>
+              Address Mgmt
             </Link>
           </li>
         </ul>

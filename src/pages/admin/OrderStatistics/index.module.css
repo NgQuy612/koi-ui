@@ -52,3 +52,58 @@
   width: 100%;
   border-collapse: collapse;
 }
+
+.search-order {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.box-table-order {
+  margin-top: 20px;
+}
+
+.search-order input {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.search-order button {
+  padding: 8px 20px;
+  margin-left: 10px;
+  border: none;
+  background-color: #00194f;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.search-order button:hover {
+  opacity: 0.6;
+}
+
+.form-search-order {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.form-search-order input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  height: 36px;
+  cursor: pointer;
+}
+
+.form-search-order button {
+  padding: 8px 20px;
+  border: none;
+  background-color: #00194f;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}

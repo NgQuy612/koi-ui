@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
@@ -19,6 +20,7 @@ function ChangePassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate form fields
     if (
       !formData.oldPassword ||
       !formData.newPassword ||
@@ -40,27 +42,28 @@ function ChangePassword() {
         return;
       }
 
-      const response = await fetch(
+      console.log(formData);
+
+      const response = await axios.patch(
         "http://localhost:8081/api/v1/user/update-password",
+        formData,
         {
-          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
+            Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(formData),
         }
       );
 
-      if (response.ok) {
-        toast.success("Cập nhật thông tin thành công");
+      if (response.status === 200) {
+        toast.success("Cập nhật mật khẩu thành công");
         setFormData({
           oldPassword: "",
           newPassword: "",
           confirmPassword: "",
         });
       } else {
-        toast.error("Lỗi khi cập nhật thông tin");
+        toast.error("Lỗi khi cập nhật mật khẩu");
       }
     } catch (error) {
       toast.error("Error: " + error);
@@ -74,6 +77,7 @@ function ChangePassword() {
       [name]: value,
     });
   };
+
   return (
     <Layout>
       <ToastContainer />

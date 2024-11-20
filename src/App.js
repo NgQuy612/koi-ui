@@ -20,7 +20,7 @@ function App() {
                   key={index}
                   path={route.path}
                   element={
-                    <PrivateRoute>
+                    <PrivateRoute role={route.role}>
                       <PagePrivate />
                     </PrivateRoute>
                   }

@@ -62,4 +62,6 @@
   padding: 8px 10px;
   border-radius: 8px;
   background-color: #33333314;
+  min-width: 42px;
+  text-align: center;
 }

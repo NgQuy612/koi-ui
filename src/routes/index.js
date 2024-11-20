@@ -11,6 +11,7 @@ import DetailOrder from "../pages/client/Customer/DetailOrder";
 import AdminPage from "../pages/admin/Adminpage";
 import UserStatistics from "../pages/admin/UserStatistics";
 import OrderStatistics from "../pages/admin/OrderStatistics";
+import AddressMng from "pages/admin/AdressMng";
 
 //Account
 import Login from "../pages/account/Login";
@@ -44,16 +45,18 @@ const publicRoutes = [
 ];
 
 const privateRoutes = [
-  { path: "/customer/", component: MyOrder },
-  { path: "/customer/infor", component: Infor },
-  { path: "/customer/change-password", component: ChangePassword },
-  { path: "/customer/my-order", component: MyOrder },
-  { path: "/customer/my-order/deliver", component: OrderDelivered },
-  { path: "/customer/create-shipment", component: CreateShipment },
-  { path: "/customer/detail-order/:id", component: DetailOrder },
-  { path: "/admin/", component: AdminPage },
-  { path: "/admin/user-statistics", component: UserStatistics },
-  { path: "/admin/order-statistics", component: OrderStatistics },
+  { path: "/customer/", component: MyOrder, role: "ROLE_USER" },
+  { path: "/customer/infor", component: Infor, role: "ROLE_USER" },
+  { path: "/customer/change-password", component: ChangePassword, role: "ROLE_USER" },
+  { path: "/customer/my-order", component: MyOrder, role: "ROLE_USER" },
+  { path: "/customer/my-order/deliver", component: OrderDelivered, role: "ROLE_USER" },
+  { path: "/customer/create-shipment", component: CreateShipment, role: "ROLE_USER" },
+  { path: "/customer/detail-order/:id", component: DetailOrder, role: "ROLE_USER" },
+
+  { path: "/admin/", component: UserStatistics, role: "ROLE_ADMIN" },
+  { path: "/admin/user-statistics", component: UserStatistics, role: "ROLE_ADMIN" },
+  { path: "/admin/order-statistics", component: OrderStatistics, role: "ROLE_ADMIN" },
+  { path: "/admin/address-management", component: AddressMng, role: "ROLE_ADMIN" },
 ];
 
 export { publicRoutes, privateRoutes };

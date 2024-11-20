@@ -41,7 +41,7 @@ const UserStatistics = () => {
       <div className={cx("box-form-user")}>
         <ToastContainer />
         <p className={cx("title-form-user")}>Thống kê người dùng</p>
-          <div>
+          <div className={cx("form-search-order")}>
             <input
               type="text"
               placeholder="Search by ID"
