@@ -4,17 +4,18 @@ import styles from "./index.module.css";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBoxOpen,
-  faLocationDot,
-  faTruckFast,
+  faCartShopping,
+  faGear,
+  faLock,
+  faPen,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 
 const cx = classNames.bind(styles);
 
-function Sidebar() {
-  const name = "Admin";
+function Sidebar({fullName}) {
+  const name = fullName || '';
   return (
     <div className={cx("sidebar")}>
       <div className={cx("box-item-sidebar")}>
@@ -24,6 +25,12 @@ function Sidebar() {
           </div>
           <div>
             <h2 className={cx("name-customer")}>{name}</h2>
+            <Link
+              className={cx("edit-profile-link")}
+              to={`/deliver/infor`}
+            >
+              <FontAwesomeIcon icon={faPen} /> Edit profile
+            </Link>
           </div>
         </div>
       </div>
@@ -31,48 +38,34 @@ function Sidebar() {
       <div className={cx("box-item-sidebar", "services")}>
         <p className={cx("title-default")}>Services</p>
         <ul className={cx("list-service")}>
-          {/* <li className={cx("item-service")}>
-            <Link
-              className={cx("link-item-service")}
-              to={`/admin/user-statistics`}
-            >
-              <div className={cx("icon-item-service")}>
-                <FontAwesomeIcon icon={faUser} />
-              </div>
-              User Statistics
-            </Link>
-          </li> */}
           <li className={cx("item-service")}>
-            <Link
-              className={cx("link-item-service")}
-              to={`/admin/order-statistics`}
-            >
+            <Link className={cx("link-item-service")} to={`/deliver/my-order`}>
               <div className={cx("icon-item-service")}>
-                <FontAwesomeIcon icon={faBoxOpen} />
+                <FontAwesomeIcon icon={faCartShopping} />
               </div>
-              Order Statistic
+              My Orders
             </Link>
           </li>
           <li className={cx("item-service")}>
             <Link
               className={cx("link-item-service")}
-              to={`/admin/address-management`}
+              to={`/deliver/change-password`}
             >
               <div className={cx("icon-item-service")}>
-                <FontAwesomeIcon icon={faLocationDot} />
+                <FontAwesomeIcon icon={faLock} />
               </div>
-              Address Mgmt
+              Account
             </Link>
           </li>
           <li className={cx("item-service")}>
             <Link
               className={cx("link-item-service")}
-              to={`/admin/create-shipment`}
+              to={`/deliver/infor`}
             >
               <div className={cx("icon-item-service")}>
-                <FontAwesomeIcon icon={faTruckFast} />
+                <FontAwesomeIcon icon={faGear} />
               </div>
-              Create Shipmment
+              Settings
             </Link>
           </li>
         </ul>

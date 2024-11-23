@@ -1,0 +1,62 @@
+.box-form-customer {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.title-form-customer {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.box-handle-form-customer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-customer {
+  flex: 1;
+}
+
+.input-form-customer {
+  margin-bottom: 14px;
+}
+
+.input-form-customer label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: #666666;
+}
+
+.input-form-customer input {
+  width: 100%;
+  height: 36px;
+  padding: 8px;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.box-btn-customer {
+  text-align: right;
+}
+
+.box-btn-customer {
+  text-align: right;
+}
+
+.box-btn-customer button {
+  margin-top: 14px;
+  padding: 8px 38px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}

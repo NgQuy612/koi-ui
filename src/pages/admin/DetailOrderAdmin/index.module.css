@@ -1,0 +1,183 @@
+.box-form-customer {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.title-form-customer {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.price-order {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.form-order {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box-input-form-order {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-input-form-order label {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.input-form-order {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  max-width: 124px;
+}
+
+.note-area.input-form-order {
+  max-width: 100%;
+}
+
+.title-container-address {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.box-handle-parameter,
+.box-select-address {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-handle-parameter {
+  width: 100%;
+}
+
+.container-input-address {
+  width: 48%;
+}
+
+.box-handle-parameter,
+.container-input-address {
+  margin-bottom: 20px;
+}
+
+.box-select-address {
+  margin-bottom: 10px;
+}
+
+.box-handle-parameter .box-input-form-order,
+.box-select-address .box-input-form-order {
+  width: 32%;
+}
+
+.box-btn-order {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.box-btn-order button {
+  height: 38px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #00194f;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.box-btn-order button:hover {
+  opacity: 0.6;
+}
+
+.select-status,
+.tag-method-order {
+  font-size: 0.6rem;
+  display: block;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  text-align: center;
+  max-width: 126px;
+}
+
+.select-staff {
+  font-size: 0.8rem;
+  display: block;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 4px;
+  text-align: center;
+  max-width: 126px;
+  border: 1px solid #ccc;
+}
+
+.select-status {
+  padding: 5px;
+}
+
+/* Status */
+.status-cancelled {
+  background-color: #e53935;
+}
+
+.status-completed {
+  background-color: #43a047;
+}
+
+.status-onprocess {
+  background-color: #0288d1;
+}
+
+.status-waiting {
+  background-color: #ffb300;
+}
+
+.status-preparing {
+  background-color: #fb8c00;
+}
+
+.status-pending {
+  background-color: #fbc02d;
+}
+
+/* Method */
+.method-land {
+  background-color: #ee5c00;
+}
+
+.method-air {
+  background-color: #0369c5;
+}
+
+.method-sea {
+  background-color: #000;
+}
+.box-widt-48 {
+  width: 48%;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.box-feedback-order .note-area-feedback,
+.box-input-note {
+  flex: 1;
+  /* min-width: 100%; */
+}
+
+textarea.input-form-order {
+  min-height: 100px;
+  min-width: 100%;
+}

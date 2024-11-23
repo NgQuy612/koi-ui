@@ -23,7 +23,9 @@ function Login() {
         navigate("/admin");
       } else if (role === "ROLE_CUSTOMER") {
         navigate("/customer");
-      } 
+      } else if (role === "ROLE_DELIVER") {
+        navigate("/staff");
+      }
     }
   }, [navigate]);
 

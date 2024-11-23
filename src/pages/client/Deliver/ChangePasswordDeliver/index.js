@@ -1,0 +1,130 @@
+import React, { useState } from "react";
+import Layout from "../../../../components/client/Deliver/Layout";
+import styles from "./index.module.css";
+import classNames from "classnames/bind";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
+const cx = classNames.bind(styles);
+
+function ChangePasswordDeliver() {
+  const [formData, setFormData] = useState({
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validate form fields
+    if (
+      !formData.oldPassword ||
+      !formData.newPassword ||
+      !formData.confirmPassword
+    ) {
+      toast.error("Vui lòng điền đầy đủ thông tin.");
+      return;
+    }
+
+    if (formData.newPassword !== formData.confirmPassword) {
+      toast.error("Mật khẩu mới và xác nhận mật khẩu không khớp.");
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        toast.error("Token is missing");
+        return;
+      }
+
+      console.log(formData);
+
+      const response = await axios.patch(
+        "http://localhost:8081/api/v1/user/update-password",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        toast.success("Cập nhật mật khẩu thành công");
+        setFormData({
+          oldPassword: "",
+          newPassword: "",
+          confirmPassword: "",
+        });
+      } else {
+        toast.error("Lỗi khi cập nhật mật khẩu");
+      }
+    } catch (error) {
+      toast.error("Error: " + error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  return (
+    <Layout>
+      <ToastContainer />
+      <div className={cx("box-form-customer")}>
+        <p className={cx("title-form-customer")}>Change Password</p>
+        <div className={cx("box-handle-form-customer")}>
+          <FontAwesomeIcon
+            size="7x"
+            icon={faLock}
+            style={{ color: "#ccc", padding: "30px" }}
+          />
+          <form onSubmit={handleSubmit} className={cx("form-customer")}>
+            <div className={cx("input-form-customer")}>
+              <label>Old Password</label>
+              <input
+                type="password"
+                name="oldPassword"
+                value={formData.oldPassword}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className={cx("input-form-customer")}>
+              <label>New Password</label>
+              <input
+                type="password"
+                name="newPassword"
+                value={formData.newPassword}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className={cx("input-form-customer")}>
+              <label>Confirm New Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className={cx("box-btn-customer")}>
+              <button type="submit">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Layout>
+  );
+}
+
+export default ChangePasswordDeliver;

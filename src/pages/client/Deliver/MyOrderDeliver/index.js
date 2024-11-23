@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../../../components/admin/Layout";
+import axios from "axios";
+import Layout from "../../../../components/client/Deliver/Layout";
 import styles from "./index.module.css";
 import classNames from "classnames/bind";
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const cx = classNames.bind(styles);
-const UserStatistics = () => {
+
+function MyOrderDeliver() {
+  const [orders, setOrders] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const token = localStorage.getItem("authToken");
-  const [orderStatistics, setOrderStatistics] = useState([]);
-  const [searchId, setSearchId] = useState("");
 
   useEffect(() => {
     if (!token) {
@@ -22,33 +23,38 @@ const UserStatistics = () => {
     }
 
     axios
-      .get("http://localhost:8081/api/v1/order", {
+      .get("http://localhost:8081/api/v1/order/deliver/me", {
         headers: {
           Authorization: "Bearer " + token,
         },
       })
-      .then((response) => setOrderStatistics(response.data))
+      .then((response) => setOrders(response.data))
       .catch((error) => toast.error("Failed to fetch orders"));
   }, [token]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
 
-    if (!searchId) {
+    if (!searchTerm) {
+      // Nếu không có searchTerm, lấy tất cả đơn hàng
       try {
-        const response = await axios.get("http://localhost:8081/api/v1/order", {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        });
-        setOrderStatistics(response.data);
+        const response = await axios.get(
+          "http://localhost:8081/api/v1/order/me",
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        setOrders(response.data);
       } catch (error) {
         toast.error("Failed to fetch orders");
       }
     } else {
+      // Nếu có searchTerm, tìm kiếm theo Order ID
       try {
         const response = await axios.get(
-          `http://localhost:8081/api/v1/order/${searchId}`,
+          `http://localhost:8081/api/v1/order/${searchTerm}`,
           {
             headers: {
               Authorization: "Bearer " + token,
@@ -56,7 +62,7 @@ const UserStatistics = () => {
           }
         );
         if (response.status === 200) {
-          setOrderStatistics([response.data]);
+          setOrders([response.data]);
         } else {
           toast.error("Order not found");
         }
@@ -106,7 +112,9 @@ const UserStatistics = () => {
   };
 
   const handleDeleteOrder = async (id) => {
-    const isConfirmed = window.confirm(`Are you sure you want to delete this Order?`);
+    const isConfirmed = window.confirm(
+      `Are you sure you want to Remove this Order?`
+    );
 
     if (!isConfirmed) {
       return;
@@ -119,8 +127,10 @@ const UserStatistics = () => {
         return;
       }
 
-      const response = await axios.delete(
-        `http://localhost:8081/api/v1/order/${id}`,
+      console.log(id);
+
+      const response = await axios.post(
+        `http://localhost:8081/api/v1/order/deliver/me/remove/${id}`, {},
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -138,20 +148,23 @@ const UserStatistics = () => {
 
   return (
     <Layout>
-      <div className={cx("box-form-user")}>
+      <div className={cx("box-form-customer")}>
         <ToastContainer />
-        <p className={cx("title-form-user")}>Thống kê đơn hàng</p>
-        <div className={cx("form-search-order")}>
-          <input
-            type="text"
-            placeholder="Search by ID"
-            value={searchId}
-            onChange={(e) => setSearchId(e.target.value)}
-          />
-          <button onClick={handleSearch}>Search</button>
-        </div>
-        <div className={cx("box-table-user")}>
-          <div className={cx("table-user")}>
+        <p className={cx("title-form-customer")}>My Order</p>
+        <div className={cx("box-table-order")}>
+          {/* Thanh tìm kiếm Order ID */}
+          <div className={cx("search-order")}>
+            <form onSubmit={handleSearch} className={cx("form-search-order")}>
+              <input
+                type="text"
+                placeholder="Search Order ID"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button type="submit">Search</button>
+            </form>
+          </div>
+          <div className={cx("table-order")}>
             <table>
               <thead>
                 <tr>
@@ -168,12 +181,12 @@ const UserStatistics = () => {
                 </tr>
               </thead>
               <tbody>
-                {orderStatistics.map((order) => (
+                {orders.map((order) => (
                   <tr key={order.id}>
                     <td>
                       <Link
                         className={cx("btn-view-detail")}
-                        to={`/admin/detail-order/${order.id}`}
+                        to={`/deliver/detail-order/${order.id}`}
                       >
                         {order.id}
                       </Link>
@@ -199,15 +212,15 @@ const UserStatistics = () => {
                     <td>{order.destination}</td>
                     <td>{order.note}</td>
                     <td>
-                      {order.status === 'PENDING' && (
+                      {
                         <button
                           className={cx("btn-delete-order")}
                           onClick={() => handleDeleteOrder(order.id)}
                         >
                           <FontAwesomeIcon icon={faCircleXmark} />
                         </button>
-                      )}
-                  </td>
+                      }
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -217,6 +230,6 @@ const UserStatistics = () => {
       </div>
     </Layout>
   );
-};
+}
 
-export default UserStatistics;
+export default MyOrderDeliver;

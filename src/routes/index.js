@@ -8,10 +8,17 @@ import OrderDelivered from "../pages/client/Customer/OrderDelivered";
 import DetailOrder from "../pages/client/Customer/DetailOrder";
 
 //Admin
-import AdminPage from "../pages/admin/Adminpage";
 import UserStatistics from "../pages/admin/UserStatistics";
 import OrderStatistics from "../pages/admin/OrderStatistics";
 import AddressMng from "pages/admin/AdressMng";
+import DetailOrderAdmin from "pages/admin/DetailOrderAdmin";
+import CreateOrder from "pages/admin/CreateOrder";
+
+//Deliver
+import ChangePasswordDeliver from "pages/client/Deliver/ChangePasswordDeliver";
+import DetailOrderDeliver from "pages/client/Deliver/DetailOrderDeliver";
+import InforDeliver from "pages/client/Deliver/InforDeliver";
+import MyOrderDeliver from "pages/client/Deliver/MyOrderDeliver";
 
 //Account
 import Login from "../pages/account/Login";
@@ -53,10 +60,18 @@ const privateRoutes = [
   { path: "/customer/create-shipment", component: CreateShipment, role: "ROLE_USER" },
   { path: "/customer/detail-order/:id", component: DetailOrder, role: "ROLE_USER" },
 
-  { path: "/admin/", component: UserStatistics, role: "ROLE_ADMIN" },
+  { path: "/admin/", component: OrderStatistics, role: "ROLE_ADMIN" },
   { path: "/admin/user-statistics", component: UserStatistics, role: "ROLE_ADMIN" },
   { path: "/admin/order-statistics", component: OrderStatistics, role: "ROLE_ADMIN" },
   { path: "/admin/address-management", component: AddressMng, role: "ROLE_ADMIN" },
+  { path: "/admin/detail-order/:id", component: DetailOrderAdmin, role: "ROLE_ADMIN" },
+  { path: "/admin/create-shipment", component: CreateOrder, role: "ROLE_ADMIN" },
+
+  { path: "/deliver/", component: MyOrderDeliver, role: "ROLE_DELIVER" },
+  { path: "/deliver/change-password", component: ChangePasswordDeliver, role: "ROLE_DELIVER" },
+  { path: "/deliver/infor", component: InforDeliver, role: "ROLE_DELIVER" },
+  { path: "/deliver/my-order", component: MyOrderDeliver, role: "ROLE_DELIVER" },
+  { path: "/deliver/detail-order/:id", component: DetailOrderDeliver, role: "ROLE_DELIVER" },
 ];
 
 export { publicRoutes, privateRoutes };

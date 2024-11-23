@@ -1,0 +1,95 @@
+.box-form-customer {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.title-form-customer {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.form-order {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box-input-form-order {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-input-form-order label {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.input-form-order {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.title-container-address {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.box-handle-parameter,
+.box-select-address {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-handle-parameter {
+  width: 100%;
+}
+
+.container-input-address,
+.box-input-note {
+  width: 48%;
+}
+
+.box-handle-parameter,
+.container-input-address {
+  margin-bottom: 20px;
+}
+
+.box-select-address {
+  margin-bottom: 10px;
+}
+
+.box-handle-parameter .box-input-form-order,
+.box-select-address .box-input-form-order {
+  width: 32%;
+}
+
+/* .box-submit-form-order {
+  display: flex;
+  align-items: flex-end;
+} */
+
+.box-submit-form-order button {
+  margin-top: 16px;
+  height: 38px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #00194f;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.box-submit-form-order button:hover {
+  opacity: 0.6;
+}
+
+textarea.input-form-order {
+  min-height: 100px;
+}

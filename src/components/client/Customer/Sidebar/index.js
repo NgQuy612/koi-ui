@@ -48,14 +48,14 @@ function Sidebar({fullName}) {
               My Orders
             </Link>
           </li>
-          <li className={cx("item-service")}>
+          {/* <li className={cx("item-service")}>
             <Link className={cx("link-item-service")} to={`/customer/my-order/deliver`}>
               <div className={cx("icon-item-service")}>
                 <FontAwesomeIcon icon={faBoxOpen} />
               </div>
               Orders Deliver
             </Link>
-          </li>
+          </li> */}
           <li className={cx("item-service")}>
             <Link
               className={cx("link-item-service")}

@@ -6,6 +6,8 @@ import classNames from "classnames/bind";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const cx = classNames.bind(styles);
 
@@ -67,6 +69,37 @@ function MyOrder() {
       } catch (error) {
         toast.error("Error fetching order");
       }
+    }
+  };
+
+  const handleDeleteOrder = async (id) => {
+    const isConfirmed = window.confirm(`Are you sure you want to delete this Order?`);
+
+    if (!isConfirmed) {
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        toast.error("Token is missing");
+        return;
+      }
+
+      const response = await axios.delete(
+        `http://localhost:8081/api/v1/order/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        toast.success(`Order ${id} deleted successfully`);
+      }
+    } catch (error) {
+      toast.error(`Failed to delete Order`);
     }
   };
 
@@ -140,6 +173,7 @@ function MyOrder() {
                   <th>Origin</th>
                   <th>Destination</th>
                   <th>Note</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -173,6 +207,16 @@ function MyOrder() {
                     <td>{order.origin}</td>
                     <td>{order.destination}</td>
                     <td>{order.note}</td>
+                    <td>
+                      {order.status === 'PENDING' && (
+                        <button
+                          className={cx("btn-delete-order")}
+                          onClick={() => handleDeleteOrder(order.id)}
+                        >
+                          <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                      )}
+                  </td>
                   </tr>
                 ))}
               </tbody>

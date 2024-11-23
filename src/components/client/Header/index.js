@@ -82,12 +82,9 @@ const menuData = [
             }
         ],
     },
-    {label: "Theo dõi đơn hàng", link: "/follow-order"},
-    {label: "Tài nguyên", link: "/resources"},
     {label: routerName.blog.title, link: routerName.blog.slug},
-    {label: "Hỗ trợ", link: "/help"},
+    {label: "Hỗ trợ", link: "/contact-sales"},
 ];
-
 
 function Header() {
     return (

@@ -10,7 +10,7 @@ function PrivateRoute({ children, role }) {
   }
 
   if (userRole !== role) {
-    return <Navigate to={userRole === "ROLE_ADMIN" ? "/admin" : "/customer"} />;
+    return <Navigate to={userRole === "ROLE_ADMIN" ? "/admin" : userRole === "ROLE_DELIVER" ? "/deliver" : "/customer"} />;
   }
 
   return children;
